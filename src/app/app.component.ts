@@ -172,15 +172,15 @@ export class AppComponent {
   demoUsers = [{
     token: 'ed463970cec2f712144b9b0b707d1a253a0603535925edd13ad49',
     address: '2306202001',
-    name: 'doctor1'
+    name: 'Rohan'
   }, {
     token: '529194e2cad857b607081d2b48cefd99cf92a595e26acf0edd13ad4c',
     address: '2306202002',
-    name: 'patient2'
+    name: 'Jay'
   }, {
-    token: 'TOKEN_USER_2',
-    address: 'ADDRESS_USER_2',
-    name: 'User-2'
+    token: 'd20fdf47aeb23c44b3e0ade0ca4abbce0a71b8942316eee13af73',
+    address: 'doctor1',
+    name: 'Doctor'
   }, {
     token: 'TOKEN_USER_3',
     address: 'ADDRESS_USER_3',
