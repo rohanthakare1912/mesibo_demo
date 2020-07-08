@@ -789,6 +789,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.STREAM_SCREEN = 2;
         this.STREAM_CAMERA = 1;
         this.api = api;
+        this.Mesibo_OnParticipants = this.Mesibo_OnParticipants.bind(this);
       }
 
       _createClass(MesiboNotify, [{
@@ -841,6 +842,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "Mesibo_OnParticipants",
         value: function Mesibo_OnParticipants(all, latest) {
           console.log('Mesibo_Onparticipants --- ');
+          console.log(this);
 
           for (var i in latest) {
             if (i) {
