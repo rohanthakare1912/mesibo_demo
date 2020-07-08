@@ -21,6 +21,7 @@ export class MesiboNotify {
   STREAM_CAMERA = 1;
   constructor(api) {
     this.api = api;
+    this.Mesibo_OnParticipants = this.Mesibo_OnParticipants.bind(this);
   }
   Mesibo_OnPermission(on) {
     console.log('Mesibo_onPermission: ' + on);
@@ -67,6 +68,7 @@ export class MesiboNotify {
 
   Mesibo_OnParticipants(all, latest) {
     console.log('Mesibo_Onparticipants --- ');
+    console.log(this);
     for (const i in latest) {
       if (i) {
         console.log('Mesibo_Onparticipants: ' + latest[i].getId());
