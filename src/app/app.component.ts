@@ -231,4 +231,37 @@ export class AppComponent {
   streamFromScreen() {
     this.mesiboListener.streamFromScreen();
   }
+
+  selfHangup() {
+    publisher.hangup();
+  }
+
+  toggleSelfVideo() {
+    publisher.toggleMute(true, false);
+  }
+
+  toggleSelfAudio() {
+    publisher.toggleMute(false, false);
+  }
+
+  toggleRemoteVideo(i) {
+    const s = streams[i];
+    if (s) {
+      s.toggleMute(true, false);
+    }
+  }
+
+  toggleRemoteAudio(i) {
+    const s = streams[i];
+    if (s) {
+      s.toggleMute(false, false);
+    }
+  }
+
+  hangup(i) {
+    const s = streams[i];
+    if (s) {
+      s.hangup();
+    }
+  }
 }
