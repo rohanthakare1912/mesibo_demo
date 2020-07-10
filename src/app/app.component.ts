@@ -12,20 +12,26 @@ let publisher;
 const streams = [];
 const MAX_STREAMS_COUNT = 4;
 export class MesiboNotify {
-  api: any;
+  // api: any;
   DEMO_GROUP_ID = 96760;
   DEMO_GROUP_NAME = 'group1';
 
   MESIBO_APP_ID = '8367';
   STREAM_SCREEN = 2;
   STREAM_CAMERA = 1;
-  constructor(api) {
-    this.api = api;
+  constructor() {
+    // this.api = api;
     this.Mesibo_OnParticipants = this.Mesibo_OnParticipants.bind(this);
+    this.on_hangup = this.on_hangup.bind(this);
   }
   Mesibo_OnPermission(on) {
     console.log('Mesibo_onPermission: ' + on);
     // show permission prompt
+  }
+
+  Mesibo_OnParticipantUpdated(allParticiapnts, participant) {
+    console.log('------Mesibo_OnParticipantUpdated--------');
+    console.log(participant);
   }
 
   Mesibo_OnConnectionStatus(status) {
@@ -85,6 +91,8 @@ export class MesiboNotify {
   }
 
   connectStream(stream) {
+    console.log('------connected streams--------');
+    console.log(streams);
     for (let i = 0; i < streams.length; i++) {
       if (streams[i] == null) {
         streams[i] = stream;
@@ -130,7 +138,9 @@ export class MesiboNotify {
 
   on_stream(p) {
     console.log('on_stream');
-
+    console.log('--------------------on_stream--------------------------');
+    console.log(streams);
+    console.log('-------------------------------------------------------');
     // Local Stream
     if (p.isLocal()) {
       p.attach('video-publisher');
@@ -153,7 +163,31 @@ export class MesiboNotify {
 
     if (MESIBO_CALLSTATUS_COMPLETE === status) {
       console.log(p.getName() + ' has disconnected');
-      // on_hangup(p);
+      console.log(this);
+      // this.on_hangup(p);
+      // Hangup Code
+      if (p.isLocal()) {
+        return;
+      }
+      for (let i = 0; i < streams.length; i++) {
+        if ( streams[i].getId() === p.getId()) {
+          streams[i] = null; // Free up slot
+          return;
+        }
+      }
+    }
+  }
+
+  on_hangup(p) {
+    console.log('on_hangup');
+    if (p.isLocal()) {
+            return;
+    }
+    for (let i = 0; i < streams.length; i++) {
+      if ( streams[i].getId() === p.getId()) {
+        streams[i] = null; // Free up slot
+        return;
+      }
     }
   }
 }
@@ -201,8 +235,8 @@ export class AppComponent {
   mesiboListener: any;
   public login(userIndex) {
     const selectedUser = this.demoUsers[userIndex];
-    this.mesiboListener = new MesiboNotify(this.api);
     this.api = window['mesibo'];
+    this.mesiboListener = new MesiboNotify();
     this.api.setAppName(this.MESIBO_APP_ID);
     this.api.setListener(this.mesiboListener);
     this.api.setCredentials(selectedUser.token);
@@ -247,14 +281,14 @@ export class AppComponent {
   toggleRemoteVideo(i) {
     const s = streams[i];
     if (s) {
-      s.toggleMute(true, false);
+      s.toggleMute(true, true);
     }
   }
 
   toggleRemoteAudio(i) {
     const s = streams[i];
     if (s) {
-      s.toggleMute(false, false);
+      s.toggleMute(false, true);
     }
   }
 
