@@ -51,7 +51,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!DOCTYPE html>\n<html lang=\"en\">\n\t<head>\n\t\t<meta charset=\"utf-8\">\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n\t\t<title>Mesibo Group Video Calling Demo</title>\n\n\t\t<!-- Bootstrap-->\n\t\t<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" crossorigin=\"anonymous\">\n\t\t<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" crossorigin=\"anonymous\"></script>\n\t\t<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\" crossorigin=\"anonymous\"></script>\n\t\t<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" crossorigin=\"anonymous\"></script>\n\t\t<!-- <script type=\"text/javascript\" src=\"https://webrtc.github.io/adapter/adapter-latest.js\"></script>\n\t\t\n\t\t<script type=\"text/javascript\" src=\"https://api.mesibo.com/mesibo2.js\"></script> \n\t\t<script type=\"text/javascript\" src=\"demo.js\" ></script> -->\n\t\t<!--SCRIPTINCLUDEEND-->\n\t</head>\n\n\t<body>\n\t\t<div class=\"container\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"form-block light-gray-bg p-30 border-clear mx-auto\">\n\t\t\t\t\t<h2 class=\"title\">Mesibo Live</h2>\n\t\t\t\t</div>\n\t\t\t\t<button type=\"button\" class=\"btn btn-danger\" id=\"cstatus\">Offline</button>                                  \n\t\t\t</div>\n\n\t\t\t<div class=\"form-group has-feedback row\" id=\"login-options\">\n        <span class=\"col-1\">Select User to login</span>\t\t\t\t\n        <div class=\"col-2\">                    \t\n          <button type=\"button\" class=\"btn btn-info my-1\" (click)=\"login(0);\">Rohan</button>\n          <br>\n          <button type=\"button\" class=\"btn btn-info my-1\" (click)=\"login(1);\">Jay\n          </button>\n          <br>\n          <button type=\"button\" class=\"btn btn-info my-1\" (click)=\"login(2);\">Doctor\n          </button>\n          <br>\n          <button type=\"button\" class=\"btn btn-info my-1\" (click)=\"login(3);\">User-3\n          </button>\n          <br>\n          <button type=\"button\" class=\"btn btn-info my-1\" (click)=\"login(4);\">User-4\n          </button>\n        </div>\n      </div>\n\t\t\t<br>\n\t\t\t<!-- Publish your own stream-->\n\t\t\t<div class=\"row\" style=\"display: none;\" id=\"conference-area\">\n\t\t\t\t<div class=\"col-4\" style=\"border-style: groove;\">\n\t\t\t\t\t<div class=\"panel panel-default\">\n\t\t\t\t\t\t<div class=\"panel-heading\">\n\t\t\t\t\t\t\t<h3 class=\"panel-title\" id=\"publisher\">\n                <span>Your Stream</span>\n\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"panel-body\" id=\"videolocal\" style=\"width: 320px; height:320px;\">\n\t\t\t\t\t\t\t<video class=\"rounded centered\" id=\"video-publisher\" width= \"100%\" height=\"100%\"  autoplay playsinline muted></video>\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"btn-group\" role=\"group\" aria-label=\"video controls\">\n\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"streamFromCamera()\">Stream Camera</button>\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleSelfVideo()\">Toggle Video</button>\n\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleSelfAudio()\">Toggle Audio</button>\n\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"streamFromScreen()\">Share Screen</button>\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"selfHangup()\" >Hangup</button>\n\t\t\t\t\t\t</div>\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-8\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t    <div class=\"col-6\" style=\"border-style: groove;\">\n\t\t\t\t\t\t\t<div class=\"panel panel-default\">\n\t\t\t\t\t\t\t\t<div class=\"panel-heading\">\n\t\t\t\t\t\t\t\t\t<h5 class=\"panel-title\" id=\"remote-stream-name-0\">\n                    <span>0</span>\n\t\t\t\t\t\t\t\t\t</h5>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<video class=\"rounded centered\" id=\"video-remote-0\" width= \"100%\" height=\"100%\" autoplay playsinline></video>\n\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" role=\"group\" aria-label=\"video controls\" >\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleRemoteVideo(0)\">Toggle Video</button>\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleRemoteAudio(0)\">Toggle Audio</button>\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"hangup(0)\" >Hangup</button>\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"redial(0)\" >Redial</button>\n\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-6\" style=\"border-style: groove;\">\n\t\t\t\t\t\t\t<div class=\"panel panel-default\">\n\t\t\t\t\t\t\t\t<div class=\"panel-heading\">\n\t\t\t\t\t\t\t\t\t<h5 class=\"panel-title\" id=\"remote-stream-name-1\">\n                    <span>1</span>\n\t\t\t\t\t\t\t\t\t</h5>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<video class=\"rounded centered\" id=\"video-remote-1\" width= \"100%\" height=\"100%\" autoplay playsinline muted=\"muted\"></video>\n\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" role=\"group\" aria-label=\"video controls\" >\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleRemoteVideo(1)\">Toggle Video</button>\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleRemoteAudio(1)\">Toggle Audio</button>\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"hangup(1)\" >Hangup</button>\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"redial(1)\" >Redial</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-6\" style=\"border-style: groove;\">\n\t\t\t\t\t\t\t<div class=\"panel panel-default\">\n\t\t\t\t\t\t\t\t<div class=\"panel-heading\">\n\t\t\t\t\t\t\t\t\t<h5 class=\"panel-title\" id=\"remote-stream-name-2\">\n                    <span>2</span>\n\t\t\t\t\t\t\t\t\t</h5>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<video class=\"rounded centered\" id=\"video-remote-3\" width= \"100%\" height=\"100%\" autoplay playsinline muted=\"muted\"></video>\n\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" role=\"group\" aria-label=\"video controls\" >\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleRemoteVideo(2)\">Toggle Video</button>\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleRemoteAudio(2)\">Toggle Audio</button>\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"hangup(2)\" >Hangup</button>\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"redial(2)\" >Redial</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-6\" style=\"border-style: groove;\">\n\t\t\t\t\t\t\t<div class=\"panel panel-default\">\n\t\t\t\t\t\t\t\t<div class=\"panel-heading\">\n\t\t\t\t\t\t\t\t\t<h5 class=\"panel-title\" id=\"remote-stream-name-3\">\n                    <span>3</span>\n\t\t\t\t\t\t\t\t\t</h5>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"panel-body\" >\n\t\t\t\t\t\t\t\t\t<video class=\"rounded centered\" id=\"video-remote-3\" width= \"100%\" height=\"100%\" autoplay playsinline muted=\"muted\"></video>\n\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" role=\"group\" aria-label=\"video controls\" >\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleRemoteVideo(3)\">Toggle Video</button>\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleRemoteAudio(3)\">Toggle Audio</button>\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"hangup(3)\" >Hangup</button>\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"redial(3)\" >Redial</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<!-- Load s dynamically -->\n\t\t\t</div>\n\t\t</div>\n\t</body>\n</html>\n";
+    __webpack_exports__["default"] = "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n\t<head>\r\n\t\t<meta charset=\"utf-8\">\r\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\r\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\r\n\t\t<title>Mesibo Group Video Calling Demo</title>\r\n\r\n\t\t<!-- Bootstrap-->\r\n\t\t<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" crossorigin=\"anonymous\">\r\n\t\t<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" crossorigin=\"anonymous\"></script>\r\n\t\t<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\" crossorigin=\"anonymous\"></script>\r\n\t\t<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" crossorigin=\"anonymous\"></script>\r\n\t\t<!-- <script type=\"text/javascript\" src=\"https://webrtc.github.io/adapter/adapter-latest.js\"></script>\r\n\t\t\r\n\t\t<script type=\"text/javascript\" src=\"https://api.mesibo.com/mesibo2.js\"></script> \r\n\t\t<script type=\"text/javascript\" src=\"demo.js\" ></script> -->\r\n\t\t<!--SCRIPTINCLUDEEND-->\r\n\t</head>\r\n\r\n\t<body>\r\n\t\t<div class=\"container\">\r\n\t\t\t<div class=\"row\">\r\n\t\t\t\t<div class=\"form-block light-gray-bg p-30 border-clear mx-auto\">\r\n\t\t\t\t\t<h2 class=\"title\">Mesibo Live</h2>\r\n\t\t\t\t</div>\r\n\t\t\t\t<button type=\"button\" class=\"btn btn-danger\" id=\"cstatus\">Offline</button>                                  \r\n\t\t\t</div>\r\n\r\n\t\t\t<div class=\"form-group has-feedback row\" id=\"login-options\">\r\n        <span class=\"col-1\">Select User to login</span>\t\t\t\t\r\n        <div class=\"col-2\">                    \t\r\n          <button type=\"button\" class=\"btn btn-info my-1\" (click)=\"login(0);\">Rohan</button>\r\n          <br>\r\n          <button type=\"button\" class=\"btn btn-info my-1\" (click)=\"login(1);\">Jay\r\n          </button>\r\n          <br>\r\n          <button type=\"button\" class=\"btn btn-info my-1\" (click)=\"login(2);\">Doctor\r\n          </button>\r\n          <br>\r\n          <button type=\"button\" class=\"btn btn-info my-1\" (click)=\"login(3);\">User-3\r\n          </button>\r\n          <br>\r\n          <button type=\"button\" class=\"btn btn-info my-1\" (click)=\"login(4);\">User-4\r\n          </button>\r\n        </div>\r\n      </div>\r\n\t\t\t<br>\r\n\t\t\t<!-- Publish your own stream-->\r\n\t\t\t<div class=\"row\" style=\"display: none;\" id=\"conference-area\">\r\n\t\t\t\t<div class=\"col-4\" style=\"border-style: groove;\">\r\n\t\t\t\t\t<div class=\"panel panel-default\">\r\n\t\t\t\t\t\t<div class=\"panel-heading\">\r\n\t\t\t\t\t\t\t<h3 class=\"panel-title\" id=\"publisher\">\r\n                <span>Your Stream</span>\r\n\t\t\t\t\t\t\t</h3>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"panel-body\" id=\"videolocal\" style=\"width: 320px; height:320px;\">\r\n\t\t\t\t\t\t\t<video class=\"rounded centered\" id=\"video-publisher\" width= \"100%\" height=\"100%\"  autoplay playsinline muted></video>\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t<div class=\"btn-group\" role=\"group\" aria-label=\"video controls\">\r\n\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"streamFromCamera()\">Stream Camera</button>\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleSelfVideo()\">Toggle Video</button>\r\n\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleSelfAudio()\">Toggle Audio</button>\r\n\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"streamFromScreen()\">Share Screen</button>\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t</div>\t\r\n\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"selfHangup()\" >Hangup</button>\r\n\t\t\t\t\t\t</div>\t\t\t\t\t\t\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div class=\"col-8\">\r\n\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t    <div class=\"col-6\" style=\"border-style: groove;\">\r\n\t\t\t\t\t\t\t<div class=\"panel panel-default\">\r\n\t\t\t\t\t\t\t\t<div class=\"panel-heading\">\r\n\t\t\t\t\t\t\t\t\t<h5 class=\"panel-title\" id=\"remote-stream-name-0\">\r\n                    <span>0</span>\r\n\t\t\t\t\t\t\t\t\t</h5>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\r\n\t\t\t\t\t\t\t\t\t<video class=\"rounded centered\" id=\"video-remote-0\" width= \"100%\" height=\"100%\" autoplay playsinline></video>\r\n\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" role=\"group\" aria-label=\"video controls\" >\r\n\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleRemoteVideo(0)\">Toggle Video</button>\r\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleRemoteAudio(0)\">Toggle Audio</button>\r\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"hangup(0)\" >Hangup</button>\r\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"redial(0)\" >Redial</button>\r\n\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"col-6\" style=\"border-style: groove;\">\r\n\t\t\t\t\t\t\t<div class=\"panel panel-default\">\r\n\t\t\t\t\t\t\t\t<div class=\"panel-heading\">\r\n\t\t\t\t\t\t\t\t\t<h5 class=\"panel-title\" id=\"remote-stream-name-1\">\r\n                    <span>1</span>\r\n\t\t\t\t\t\t\t\t\t</h5>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\r\n\t\t\t\t\t\t\t\t\t<video class=\"rounded centered\" id=\"video-remote-1\" width= \"100%\" height=\"100%\" autoplay playsinline muted=\"muted\"></video>\r\n\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" role=\"group\" aria-label=\"video controls\" >\r\n\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleRemoteVideo(1)\">Toggle Video</button>\r\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleRemoteAudio(1)\">Toggle Audio</button>\r\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"hangup(1)\" >Hangup</button>\r\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"redial(1)\" >Redial</button>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"col-6\" style=\"border-style: groove;\">\r\n\t\t\t\t\t\t\t<div class=\"panel panel-default\">\r\n\t\t\t\t\t\t\t\t<div class=\"panel-heading\">\r\n\t\t\t\t\t\t\t\t\t<h5 class=\"panel-title\" id=\"remote-stream-name-2\">\r\n                    <span>2</span>\r\n\t\t\t\t\t\t\t\t\t</h5>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\r\n\t\t\t\t\t\t\t\t\t<video class=\"rounded centered\" id=\"video-remote-3\" width= \"100%\" height=\"100%\" autoplay playsinline muted=\"muted\"></video>\r\n\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" role=\"group\" aria-label=\"video controls\" >\r\n\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleRemoteVideo(2)\">Toggle Video</button>\r\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleRemoteAudio(2)\">Toggle Audio</button>\r\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"hangup(2)\" >Hangup</button>\r\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"redial(2)\" >Redial</button>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"col-6\" style=\"border-style: groove;\">\r\n\t\t\t\t\t\t\t<div class=\"panel panel-default\">\r\n\t\t\t\t\t\t\t\t<div class=\"panel-heading\">\r\n\t\t\t\t\t\t\t\t\t<h5 class=\"panel-title\" id=\"remote-stream-name-3\">\r\n                    <span>3</span>\r\n\t\t\t\t\t\t\t\t\t</h5>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<div class=\"panel-body\" >\r\n\t\t\t\t\t\t\t\t\t<video class=\"rounded centered\" id=\"video-remote-3\" width= \"100%\" height=\"100%\" autoplay playsinline muted=\"muted\"></video>\r\n\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" role=\"group\" aria-label=\"video controls\" >\r\n\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleRemoteVideo(3)\">Toggle Video</button>\r\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"toggleRemoteAudio(3)\">Toggle Audio</button>\r\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"hangup(3)\" >Hangup</button>\r\n\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" style=\"font-size: 15px\" (click)=\"redial(3)\" >Redial</button>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<!-- Load s dynamically -->\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</body>\r\n</html>\r\n";
     /***/
   },
 
@@ -780,22 +780,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var MAX_STREAMS_COUNT = 4;
 
     var MesiboNotify = /*#__PURE__*/function () {
-      function MesiboNotify(api) {
+      function MesiboNotify() {
         _classCallCheck(this, MesiboNotify);
 
+        // api: any;
         this.DEMO_GROUP_ID = 96760;
         this.DEMO_GROUP_NAME = 'group1';
         this.MESIBO_APP_ID = '8367';
         this.STREAM_SCREEN = 2;
-        this.STREAM_CAMERA = 1;
-        this.api = api;
+        this.STREAM_CAMERA = 1; // this.api = api;
+
         this.Mesibo_OnParticipants = this.Mesibo_OnParticipants.bind(this);
+        this.on_hangup = this.on_hangup.bind(this);
       }
 
       _createClass(MesiboNotify, [{
         key: "Mesibo_OnPermission",
         value: function Mesibo_OnPermission(on) {
           console.log('Mesibo_onPermission: ' + on); // show permission prompt
+        }
+      }, {
+        key: "Mesibo_OnParticipantUpdated",
+        value: function Mesibo_OnParticipantUpdated(allParticiapnts, participant) {
+          console.log('------Mesibo_OnParticipantUpdated--------');
+          console.log(participant);
         }
       }, {
         key: "Mesibo_OnConnectionStatus",
@@ -862,6 +870,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "connectStream",
         value: function connectStream(stream) {
+          console.log('------connected streams--------');
+          console.log(streams);
+
           for (var i = 0; i < streams.length; i++) {
             if (streams[i] == null) {
               streams[i] = stream;
@@ -905,7 +916,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "on_stream",
         value: function on_stream(p) {
-          console.log('on_stream'); // Local Stream
+          console.log('on_stream');
+          console.log('--------------------on_stream--------------------------');
+          console.log(streams);
+          console.log('-------------------------------------------------------'); // Local Stream
 
           if (p.isLocal()) {
             p.attach('video-publisher');
@@ -928,7 +942,38 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           if (MESIBO_CALLSTATUS_COMPLETE === status) {
-            console.log(p.getName() + ' has disconnected'); // on_hangup(p);
+            console.log(p.getName() + ' has disconnected');
+            console.log(this); // this.on_hangup(p);
+            // Hangup Code
+
+            if (p.isLocal()) {
+              return;
+            }
+
+            for (var i = 0; i < streams.length; i++) {
+              if (streams[i].getId() === p.getId()) {
+                streams[i] = null; // Free up slot
+
+                return;
+              }
+            }
+          }
+        }
+      }, {
+        key: "on_hangup",
+        value: function on_hangup(p) {
+          console.log('on_hangup');
+
+          if (p.isLocal()) {
+            return;
+          }
+
+          for (var i = 0; i < streams.length; i++) {
+            if (streams[i].getId() === p.getId()) {
+              streams[i] = null; // Free up slot
+
+              return;
+            }
           }
         }
       }]);
@@ -977,8 +1022,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "login",
         value: function login(userIndex) {
           var selectedUser = this.demoUsers[userIndex];
-          this.mesiboListener = new MesiboNotify(this.api);
           this.api = window['mesibo'];
+          this.mesiboListener = new MesiboNotify();
           this.api.setAppName(this.MESIBO_APP_ID);
           this.api.setListener(this.mesiboListener);
           this.api.setCredentials(selectedUser.token);
@@ -1026,7 +1071,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var s = streams[i];
 
           if (s) {
-            s.toggleMute(true, false);
+            s.toggleMute(true, true);
           }
         }
       }, {
@@ -1035,7 +1080,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var s = streams[i];
 
           if (s) {
-            s.toggleMute(false, false);
+            s.toggleMute(false, true);
           }
         }
       }, {
